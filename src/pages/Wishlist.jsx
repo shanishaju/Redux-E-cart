@@ -1,4 +1,4 @@
-import { faArrowLeft, faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faCartShopping, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import React from 'react'
@@ -23,7 +23,7 @@ function Wishlist() {
         <div className='d-flex justify-content-between'>
 
         <Button variant="dander"><FontAwesomeIcon icon={faCartShopping} style={{color: "#FFD43B",}} /></Button>
-        <Button variant="success"><FontAwesomeIcon icon={faHeart} style={{color: "#ff3d3d",}} /></Button>
+        <Button variant="success"><FontAwesomeIcon icon={faTrash}  style={{color: "#ffffff",}} /></Button>
         </div>
 
       </Card.Body>

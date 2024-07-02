@@ -12,7 +12,7 @@ function Cart() {
     
     <div className="col-md-1"></div>
     <div className="col-md-6">
-    <Table striped bordered hover className="table">
+    <Table striped bordered hover className="table mt-5">
         <thead>
           <tr>
             <th>#</th>
@@ -67,11 +67,9 @@ function Cart() {
 
     
 
-      </div>
-
-
-      <div style={{width:"100%", height:"70vh", display:'flex', justifyContent:'center', alignItems:"center", flexDirection:'column' }}>
-      <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-2130356-1800917.png" alt="" />
+    </div>
+    <div style={{width:"100%", height:"70vh", display:'flex', justifyContent:'center', alignItems:"center", flexDirection:'column' }}>
+    <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-2130356-1800917.png" alt="" />
     <button className='btn btn-primary mt-4'> <FontAwesomeIcon icon={faArrowLeft} className='me-2'/>  Back to home</button>
     </div>
     </>

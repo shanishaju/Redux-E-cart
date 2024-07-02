@@ -13,7 +13,7 @@ import Badge from 'react-bootstrap/Badge';
 function Header() {
   return (
     <>
-    <Navbar style={{backgroundColor:'grey'}} data-bs-theme="dark" expand="lg" className="ms-3 me-3">
+    <Navbar style={{backgroundColor:'grey'}} data-bs-theme="dark" expand="lg" className="">
       <Container>
       <Link to={'/'}>
         <Navbar.Brand href="#home"><FontAwesomeIcon icon={faCartShopping} className='me-3' />E-Cart</Navbar.Brand>

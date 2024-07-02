@@ -10,7 +10,7 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 function Footer() {
   return (
     <>
-    <div className="  row  m-3 me-3 text-white" style={{backgroundColor:'grey'}}>
+    <div className="  row   text-white" style={{backgroundColor:'grey'}}>
        
        <div className="col-md-4 p-4 ms-md-5">
            <h4 className='text-white' ><FontAwesomeIcon icon={faCartShopping} className='me-2' />E-Cart</h4>
