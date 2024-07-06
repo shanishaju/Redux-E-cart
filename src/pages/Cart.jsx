@@ -1,22 +1,50 @@
 
     
-
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFromCartList } from '../redux/slice/cartSlice';
-
+import { emptyCart, removeFromCartList } from '../redux/slice/cartSlice';
 function Cart() {
   const cartListArray = useSelector((state)=>state.cartlistReducer)
   console.log(cartListArray);
  const dispatch = useDispatch()
  
+  // For naviagation to other pages
+  const navigate = useNavigate()
+
+ const [total, setTotal] = useState(0);
+ 
+//  To find the total sum of price in cart
+const getTotal = () => {
+  if(cartListArray.length>0){
+    setTotal(cartListArray.map((item)=>item.price).reduce((n1,n2)=>n1+n2))
+  }
+  else{
+    setTotal(0)
+    }
+}
+
+// function when check button pressed
+// alert for order placed successfully
+// jump to home page and make cart state empty
+
+const handleCheckOut = ()=>{
+  alert("Order Placed Successfully")
+  dispatch(emptyCart())
+  navigate('/')
+  // window.location = "/"
+}
+
+useEffect(()=>{
+  getTotal()
+},[cartListArray])
+
   return (
     <>
     <Row className='my-5 w-100 '>
@@ -62,17 +90,17 @@ function Cart() {
       
      
      </Table>
-      </Col>
-      <Col md={4} className='d-flex justify-content-center m-5'>
-      <Card style={{ width: '450px' ,height:'200px'}} className='border shadow p-3  ms-5 mt-5'>
+     </Col>
+      <Col md={4} className='d-flex justify-content-center'>
+      <Card style={{ width: '450px' ,height:'200px'}} className='border shadow p-3 my-5'>
       <Card.Body>
         <Card.Title><h3>Cart Summary</h3> </Card.Title>
         <Card.Text>
-          <h5>Total Number of Products: <span className='text-warning'>5</span></h5>
-          <h5>Total Price: $<span className='text-warning'>5</span></h5>
+          <h5>Total Number of Products: <span className='text-warning'>{cartListArray.length}</span></h5>
+          <h5>Total Price: $<span className='text-warning'>{total}</span></h5>
           
         </Card.Text>
-        <Button className='border rounded d-fle' variant="success">CheckOut</Button>
+        <Button onClick={handleCheckOut}  className='border rounded d-fle' variant="success">CheckOut</Button>
       </Card.Body>
     </Card>
       </Col>
